@@ -77,8 +77,7 @@ void loop() {
   if (millis() - lastMillis > 1000) {
     lastMillis = millis();
     // sending values to topics in a JSON format
-    client.publish("/esp/temperature", "{\"value\": "+ String(bmp.readTemperature()) +"}" );
-    client.publish("/esp/altitude", "{\"value\": "+ String(bmp.readAltitude(101500)) +"}" );
-    client.publish("/esp/pressure", "{\"value\": "+ String(bmp.readSealevelPressure()) +"}" );
+    client.publish("sensor/temperatura", "{\"value\": "+ String(bmp.readTemperature()) +"}" );
+    client.publish("sensor/pressao", "{\"value\": "+ String(bmp.readSealevelPressure()) +"}" );
   }
 }
